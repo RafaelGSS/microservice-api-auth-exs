@@ -3,7 +3,7 @@
 .elixir_ls/
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
-
+tags
 # The directory Mix downloads your dependencies sources to.
 /deps/
 
