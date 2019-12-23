@@ -8,6 +8,7 @@ defmodule MsApiAuthExsWeb.Router do
   scope "/api", MsApiAuthExsWeb do
     pipe_through :api
 
-    get "/login", AuthController, :index
+    post "/login", AuthController, :login
+    resources "/users", UserController
   end
 end
