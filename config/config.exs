@@ -25,6 +25,10 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :ms_api_auth_exs, MsApiAuthExs.Guardian,
+  issuer: "ms_api_auth_exs",
+  secret_key: "NnHVnHBLxiijtiigvafjue2w+ntFQUqjYRNNxmP4FnOixa7v/4p4T2tQSx6hK9s2"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
