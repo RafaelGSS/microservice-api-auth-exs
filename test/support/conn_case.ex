@@ -16,6 +16,7 @@ defmodule MsApiAuthExsWeb.ConnCase do
   """
 
   use ExUnit.CaseTemplate
+  alias Ecto.Adapters.SQL.Sandbox
 
   using do
     quote do
@@ -29,10 +30,10 @@ defmodule MsApiAuthExsWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(MsApiAuthExs.Repo)
+    :ok = Sandbox.checkout(MsApiAuthExs.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(MsApiAuthExs.Repo, {:shared, self()})
+      Sandbox.mode(MsApiAuthExs.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

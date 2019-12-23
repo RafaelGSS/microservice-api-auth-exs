@@ -6,9 +6,9 @@ defmodule MsApiAuthExs.Accounts do
   import Ecto.Query, warn: false
   import Bcrypt, only: [verify_pass: 2]
 
-  alias MsApiAuthExs.Repo
-  alias MsApiAuthExs.Guardian
   alias MsApiAuthExs.Accounts.User
+  alias MsApiAuthExs.Guardian
+  alias MsApiAuthExs.Repo
 
   @doc """
   Returns the list of users.
@@ -69,7 +69,6 @@ defmodule MsApiAuthExs.Accounts do
   defp email_password_auth(email, password) do
     with {:ok, user} <- get_by_email(email), do: verify_password(password, user)
   end
-
 
   defp verify_password(password, %User{} = user) do
     if verify_pass(password, user.crypted_password), do: {:ok, user}, else: {:error, :invalid_password}

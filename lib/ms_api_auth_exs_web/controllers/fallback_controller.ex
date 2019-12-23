@@ -21,7 +21,6 @@ defmodule MsApiAuthExsWeb.FallbackController do
   end
 
   def call(conn, {:error, :unauthorized}) do
-    require IEx; IEx.pry
     conn
     |> put_status(:unauthorized)
     |> json(%{error: "Login error"})
