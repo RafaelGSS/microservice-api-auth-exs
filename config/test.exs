@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :ms_api_auth_exs, MsApiAuthExs.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "toor",
   database: "ms_api_auth_exs_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

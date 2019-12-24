@@ -6,9 +6,17 @@ defmodule MsApiAuthExs.AccountsTest do
   describe "users" do
     alias MsApiAuthExs.Accounts.User
 
-    @valid_attrs %{}
-    @update_attrs %{}
-    @invalid_attrs %{}
+    @valid_attrs %{
+      "email" => "example@example.com",
+      "password" => "test1234"
+    }
+    @update_attrs %{
+      "email" => "example2@example.com",
+      "password" => "pass1234"
+    }
+    @invalid_attrs %{
+      "email" => "invalid"
+    }
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -16,7 +24,7 @@ defmodule MsApiAuthExs.AccountsTest do
         |> Enum.into(@valid_attrs)
         |> Accounts.create_user()
 
-      user
+      Accounts.get_user!(user.id)
     end
 
     test "list_users/0 returns all users" do

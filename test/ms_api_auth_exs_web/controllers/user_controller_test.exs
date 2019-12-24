@@ -5,10 +5,12 @@ defmodule MsApiAuthExsWeb.UserControllerTest do
   alias MsApiAuthExs.Accounts.User
 
   @create_attrs %{
-
+    "email" => "example@example.com",
+    "password" => "test1234"
   }
   @update_attrs %{
-
+    "email" => "example2@example.com",
+    "password" => "pass1234"
   }
   @invalid_attrs %{}
 

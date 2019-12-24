@@ -29,10 +29,10 @@ defmodule MsApiAuthExs.DataCase do
   end
 
   setup tags do
-    :ok = Adapters.SQL.Sandbox.checkout(MsApiAuthExs.Repo)
+    :ok = Sandbox.checkout(MsApiAuthExs.Repo)
 
     unless tags[:async] do
-      Adapters.SQL.Sandbox.mode(MsApiAuthExs.Repo, {:shared, self()})
+      Sandbox.mode(MsApiAuthExs.Repo, {:shared, self()})
     end
 
     :ok
