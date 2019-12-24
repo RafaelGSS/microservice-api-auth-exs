@@ -34,7 +34,7 @@ jobs:
 
       - name: Run tests
         run: |
-          mix compile --warnings-as-errors
+          mix compile
           mix credo -a --strict
           mix test
         env:
