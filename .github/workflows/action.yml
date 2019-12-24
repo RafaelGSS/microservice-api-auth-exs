@@ -34,3 +34,4 @@ jobs:
         mix test
       env:
         DB_HOST: postgres
+
